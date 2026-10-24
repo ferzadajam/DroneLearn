@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DroneLearn | Joseph A. Taub School</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>.cards a.card{color:inherit;text-decoration:none;display:block}.cards a.card:hover{transform:translateY(-3px)}.cards a.card:focus-visible{outline:3px solid #36b4ff;outline-offset:4px}</style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="DroneLearn home">
+      <img src="{{ url_for('static', filename='school-logo.png') }}" alt="Joseph A. Taub School crest">
+      <span><strong>JOSEPH A. TAUB SCHOOL</strong><small>DRONE EDUCATION PROGRAM</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="/">Home</a><a href="{{ url_for('lessons') }}#lesson-1">Lessons</a><a href="{{ url_for('lessons') }}#lesson-2">Safety</a><a href="{{ url_for('lessons') }}#lesson-3">Programming</a><a href="{{ url_for('quiz') }}">Quizzes</a><a href="{{ url_for('login') }}">Dashboard</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <video class="hero-video" autoplay muted loop playsinline poster="{{ url_for('static', filename='school-aerial.jpg') }}" aria-hidden="true">
+        <source src="{{ url_for('static', filename='drone-hero.mp4') }}" type="video/mp4">
+      </video>
+      <div class="shade"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">REAL-WORLD STEM LEARNING</p>
+          <h1>Drone<span>Learn</span></h1>
+          <h2>Explore the World of Drones</h2>
+          <p class="tagline">Learn. Practice. Fly Safely.</p>
+          
+<a class="cta" href="{{ url_for('lessons') }}">START LEARNING <span aria-hidden="true">→</span></a>
+
+        </div>
+        <img class="drone" src="{{ url_for('static', filename='classroom-drone.png') }}" alt="Small training drone used in the program">
+      </div>
+    </section>
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="section-head"><p>YOUR LEARNING JOURNEY</p><h2 id="features-title">Explore DroneLearn</h2></div>
+      <div class="cards">
+        <a class="card" href="{{ url_for('lessons') }}#lesson-1"><div class="visual visual-drone"><img src="{{ url_for('static', filename='classroom-drone.png') }}" alt="Training drone"></div><div class="card-body"><span class="num">01 / EXPLORE</span><h3>Drone Lessons</h3><p>Discover drone parts, how drones fly, and real-world applications.</p></div></a>
+        <a class="card" href="{{ url_for('lessons') }}#lesson-2"><div class="visual visual-safety"><span aria-hidden="true">✦</span><strong>FLY SMART</strong></div><div class="card-body"><span class="num">02 / PROTECT</span><h3>Drone Safety</h3><p>Learn safety checks, flying rules, and responsible drone use.</p></div></a>
+        <a class="card" href="{{ url_for('lessons') }}#lesson-3"><div class="visual visual-code"><span>01 &nbsp; TAKEOFF</span><span>02 &nbsp; MOVE FORWARD</span><span>03 &nbsp; LAND</span></div><div class="card-body"><span class="num">03 / CREATE</span><h3>Programming</h3><p>Explore the basics of coding and drone commands.</p></div></a>
+        <a class="card" href="{{ url_for('quiz') }}"><div class="visual visual-quiz"><span aria-hidden="true">✓</span><strong>TEST YOUR SKILLS</strong></div><div class="card-body"><span class="num">04 / PRACTICE</span><h3>Quizzes</h3><p>Check your knowledge with interactive quizzes and feedback.</p></div></a>
+        <a class="card" href="{{ url_for('login') }}"><div class="visual visual-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="card-body"><span class="num">05 / PROGRESS</span><h3>Instructor Dashboard</h3><p>Review lesson completion and student quiz results.</p></div></a>
+      </div>
+      
+    </section>
+    <section class="benefits"><div>✧ &nbsp; REAL-WORLD STEM LEARNING</div><div>◎ &nbsp; HANDS-ON EXPERIENCE</div><div>⚙ &nbsp; TECHNICAL SKILLS</div><div>★ &nbsp; FUTURE READY</div></section>
+  </main>
+  <footer>DroneLearn · IT Capstone Project · Fall 2026</footer>
+</body>
+</html>

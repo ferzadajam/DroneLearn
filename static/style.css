@@ -1,0 +1,751 @@
+
+/* ==========================================
+   DroneLearn - Main Stylesheet
+   Joseph A. Taub School
+   ========================================== */
+
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Arial, sans-serif;
+    background: #f6f3f0;
+    color: #272029;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+   ========================================== */
+
+.topbar {
+    background: #501016;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px max(28px, 4vw);
+    gap: 24px;
+    position: relative;
+    z-index: 5;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: white;
+    min-width: 290px;
+}
+
+.brand img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+.brand strong {
+    font-size: clamp(15px, 1.6vw, 24px);
+    letter-spacing: 0.045em;
+    display: block;
+}
+
+.brand small {
+    display: block;
+    color: #f1c66d;
+    letter-spacing: 0.25em;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.topbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+.topbar nav a {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 650;
+    padding: 12px 14px;
+    border-radius: 6px;
+}
+
+.topbar nav a:hover,
+.topbar nav a.active {
+    background: #e9c274;
+    color: #461015;
+}
+
+/* ==========================================
+   HERO SECTION - SCHOOL VIDEO
+   ========================================== */
+
+.hero {
+    position: relative;
+    min-height: 520px;
+    background: #223d43 url('school-aerial.jpg') center 50% / cover;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(15, 14, 17, 0.79),
+        rgba(20, 15, 18, 0.52) 48%,
+        rgba(20, 15, 18, 0.16)
+    );
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1450px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 75px 5% 105px;
+    gap: 24px;
+}
+
+.hero-copy {
+    color: white;
+    max-width: 750px;
+}
+
+.eyebrow {
+    color: #e8c16f;
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    font-weight: 800;
+}
+
+.hero h1 {
+    font-size: clamp(64px, 8.8vw, 132px);
+    letter-spacing: -0.07em;
+    margin: 8px 0 0;
+    line-height: 1;
+}
+
+.hero h1 span {
+    color: #f1c66d;
+}
+
+.hero h2 {
+    font-size: clamp(20px, 2.5vw, 34px);
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.tagline {
+    font-size: 18px;
+    letter-spacing: 0.16em;
+}
+
+/* START LEARNING BUTTON */
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 25px;
+    background: #67121c;
+    border: 2px solid #f1c66d;
+    color: #fff;
+    padding: 18px 28px;
+    border-radius: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    box-shadow: 0 10px 30px #0005;
+}
+
+.cta:hover {
+    background: #8a2330;
+}
+
+/* HIDE LARGE DRONE IMAGE OVER VIDEO */
+
+.hero .drone {
+    display: none !important;
+}
+
+/* ==========================================
+   FEATURE CARDS
+   ========================================== */
+
+.features {
+    position: relative;
+    z-index: 2;
+    max-width: 1480px;
+    margin: -48px auto 0;
+    padding: 0 24px 38px;
+}
+
+.section-head {
+    text-align: center;
+    padding: 45px 0 25px;
+}
+
+.section-head p {
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: #a47a2e;
+    font-weight: 800;
+}
+
+.section-head h2 {
+    font-size: 32px;
+    margin: 5px 0 0;
+    color: #501016;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.card {
+    overflow: hidden;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 26px #2d20221c;
+    border: 1px solid #ede7e3;
+}
+
+.visual {
+    height: 150px;
+    background: #e8e5e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* DRONE LESSONS CARD */
+
+.visual-drone img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+}
+
+/* DRONE SAFETY CARD */
+
+.visual-safety {
+    background: linear-gradient(135deg, #4b1017, #a43e37);
+    color: #f4cc80;
+    gap: 10px;
+}
+
+.visual-safety span {
+    font-size: 60px;
+}
+
+.visual-safety strong,
+.visual-quiz strong {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+}
+
+/* PROGRAMMING CARD */
+
+.visual-code {
+    align-items: flex-start;
+    padding: 20px;
+    background: #15242b;
+    color: #8fe6b8;
+    gap: 10px;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+/* QUIZZES CARD */
+
+.visual-quiz {
+    background: linear-gradient(145deg, #a18b6b, #e8dbbc);
+    color: #501016;
+    gap: 5px;
+}
+
+.visual-quiz span {
+    font-size: 64px;
+}
+
+/* INSTRUCTOR DASHBOARD CARD */
+
+.visual-chart {
+    flex-direction: row;
+    align-items: end;
+    gap: 10px;
+    padding-bottom: 30px;
+    background: #e6ecf0;
+}
+
+.visual-chart i {
+    width: 17px;
+    background: #6e1b26;
+    border-radius: 4px 4px 0 0;
+    height: 36%;
+}
+
+.visual-chart i:nth-child(2) {
+    height: 61%;
+}
+
+.visual-chart i:nth-child(3) {
+    height: 48%;
+}
+
+.visual-chart i:nth-child(4) {
+    height: 82%;
+}
+
+.visual-chart i:nth-child(5) {
+    height: 68%;
+}
+
+/* CARD TEXT */
+
+.card-body {
+    padding: 18px;
+}
+
+.num {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: #a07736;
+    font-weight: 800;
+}
+
+.card h3 {
+    font-size: 18px;
+    color: #5b1720;
+    margin: 8px 0;
+}
+
+.card p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #4d4d58;
+    margin: 0;
+}
+
+.note {
+    text-align: center;
+    color: #766b69;
+    font-size: 12px;
+    margin: 24px 0 0;
+}
+
+/* ==========================================
+   BENEFITS & FOOTER
+   ========================================== */
+
+.benefits {
+    background: #541119;
+    color: #f3d085;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 35px 4vw;
+    text-align: center;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+}
+
+.benefits div + div {
+    border-left: 1px solid #ffffff40;
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    background: #3e0b11;
+    color: #ead7d0;
+    font-size: 12px;
+}
+
+/* ==========================================
+   TABLET RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 1050px) {
+    .topbar {
+        flex-direction: column;
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-inner {
+        padding: 65px 5% 100px;
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 650px) {
+    .brand {
+        min-width: 0;
+    }
+
+    .brand img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .brand strong {
+        font-size: 15px;
+    }
+
+    .brand small {
+        font-size: 9px;
+        letter-spacing: 0.1em;
+    }
+
+    .topbar nav {
+        justify-content: center;
+    }
+
+    .topbar nav a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 45px 6% 95px;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero h1 {
+        font-size: 66px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .visual {
+        height: 180px;
+    }
+
+    .benefits {
+        grid-template-columns: repeat(2, 1fr);
+        font-size: 11px;
+    }
+
+    .benefits div + div {
+        border: 0;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-video {
+        display: none;
+    }
+}
+
+/* ==========================================
+   DRONE LESSONS PAGE
+   ========================================== */
+
+.lessons-page {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+.lessons-page h1 {
+    color: #501016;
+    font-size: 42px;
+}
+
+.lessons-page > p {
+    color: #666;
+    font-size: 18px;
+}
+
+.lesson-box {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    margin: 30px 0;
+    box-shadow: 0 8px 25px #00000015;
+}
+
+.lesson-box h2 {
+    color: #501016;
+}
+
+.lesson-box h3 {
+    color: #8a2330;
+    margin-top: 25px;
+}
+
+.lesson-box li {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   DRONE LESSON - ENHANCED DESIGN
+   ========================================== */
+
+.lesson-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.lesson-label {
+    color: #a47a2e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.lesson-intro h1 {
+    color: #501016;
+    font-size: clamp(32px, 5vw, 48px);
+    margin: 12px 0;
+}
+
+.lesson-intro > p:last-child {
+    color: #555;
+    line-height: 1.7;
+}
+
+.parts-grid,
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.part-card,
+.control-card {
+    background: #faf7f3;
+    border: 1px solid #e7ddd5;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.part-card span {
+    font-size: 32px;
+}
+
+.part-card h4,
+.control-card h4 {
+    color: #501016;
+    margin: 12px 0 8px;
+}
+
+.part-card p,
+.control-card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.lesson-question {
+    background: #f5eee5;
+    border-left: 5px solid #a47a2e;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.answer-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.answer-options button {
+    background: white;
+    border: 1px solid #d8c7b7;
+    border-radius: 8px;
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.answer-options button:hover,
+.answer-options button:focus-visible {
+    background: #501016;
+    color: white;
+}
+
+#answer-feedback {
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+@media (max-width: 650px) {
+    .parts-grid,
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-box {
+        padding: 22px;
+    }
+}
+
+/* ==========================================
+   DRONE FLIGHT ACADEMY
+   ========================================== */
+
+.lesson-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.lesson-label {
+    color: #a47a2e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.lesson-intro h1 {
+    color: #501016;
+    font-size: 48px;
+    margin: 12px 0;
+}
+
+.lesson-intro p {
+    line-height: 1.7;
+}
+
+/* DRONE PARTS */
+
+.parts-grid,
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.part-card,
+.control-card {
+    background: #faf7f3;
+    border: 1px solid #e7ddd5;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.part-card span {
+    font-size: 32px;
+}
+
+.part-card h4,
+.control-card h4 {
+    color: #501016;
+    margin: 12px 0 8px;
+}
+
+.part-card p,
+.control-card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* INTERACTIVE QUESTION */
+
+.lesson-question {
+    background: #f5eee5;
+    border-left: 5px solid #a47a2e;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 40px;
+}
+
+.answer-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.answer-options button {
+    background: white;
+    border: 1px solid #d8c7b7;
+    border-radius: 8px;
+    padding: 14px 18px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.answer-options button:hover,
+.answer-options button:focus-visible {
+    background: #501016;
+    color: white;
+}
+
+#answer-feedback {
+    font-weight: 700;
+    margin-top: 18px;
+}
+
+/* MOBILE DESIGN */
+
+@media (max-width: 650px) {
+    .parts-grid,
+    .controls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-intro h1 {
+        font-size: 34px;
+    }
+
+    .lesson-box {
+        padding: 22px;
+    }
+}

@@ -1,0 +1,844 @@
+\
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Drone Flight Academy | DroneLearn</title>
+
+    <link rel="stylesheet"
+
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <a href="/" class="brand">
+
+            <img
+
+                src="{{ url_for('static', filename='school-logo.png') }}"
+
+                alt="Joseph A. Taub School Logo"
+
+            >
+
+            <div>
+
+                <strong>DRONELEARN</strong>
+
+                <small>JOSEPH A. TAUB SCHOOL</small>
+
+            </div>
+
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/lessons#lesson-1">Lessons</a>
+            <a href="/lessons#lesson-2">Safety</a>
+            <a href="/lessons#lesson-3">Programming</a>
+            <a href="/quiz">Quizzes</a>
+            <a href="/login">Dashboard</a>
+        </nav>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="lessons-page">
+
+        <div class="lesson-intro">
+
+            <p class="lesson-label">DRONE EDUCATION PROGRAM</p>
+
+            <h1>Drone Flight Academy</h1>
+
+            <p>
+
+                Explore the world of drones, learn how they work,
+
+                and develop the knowledge needed to fly safely.
+
+            </p>
+
+        </div>
+
+        <!-- ===================================
+
+             LESSON 1: INTRODUCTION TO DRONES
+
+             \=================================== -->
+
+        <!-- STUDENT LESSON PROGRESS -->
+        <div class="lesson-question" style="margin: 24px 0; padding: 22px;">
+            <p class="lesson-label">YOUR LEARNING PROGRESS</p>
+            <h2>Track Your Lessons</h2>
+            <p>Enter your name before marking a lesson complete.</p>
+            <label for="progress-student-name"><strong>Student Name</strong></label>
+            <input id="progress-student-name" type="text" maxlength="100"
+                   autocomplete="name" placeholder="Enter your name"
+                   style="display:block; width:100%; max-width:400px; padding:12px; margin:10px 0; border:1px solid #aaa; border-radius:8px; font:inherit;">
+            <p id="progress-message" role="status" aria-live="polite"></p>
+        </div>
+
+        <section class="lesson-box" id="lesson-1">
+
+            <p class="lesson-label">LESSON 01 - BEGINNER</p>
+
+            <h2>Introduction to Drones</h2>
+
+            <h3>Learning Objectives</h3>
+
+            <p>By the end of this lesson, you will be able to:</p>
+
+            <ul>
+
+                <li>Explain what a drone is.</li>
+
+                <li>Identify the main parts of a drone.</li>
+
+                <li>Describe the four basic drone movements.</li>
+
+            </ul>
+
+            <h3>1. What Is a Drone?</h3>
+
+            <p>
+
+                A drone is an aircraft that operates without
+
+                a pilot on board. Many drones are controlled
+
+                remotely, while others can follow programmed
+
+                flight instructions.
+
+            </p>
+
+            <h3>2. Main Parts of a Drone</h3>
+
+            <div class="parts-grid">
+
+                <div class="part-card">
+
+                    <span>⚙️</span>
+
+                    <h4>Motors</h4>
+
+                    <p>Spin the propellers to produce thrust.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🌀</span>
+
+                    <h4>Propellers</h4>
+
+                    <p>Move air to help the drone lift and fly.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🔋</span>
+
+                    <h4>Battery</h4>
+
+                    <p>Provides electrical power to the drone.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🎮</span>
+
+                    <h4>Flight Controller</h4>
+
+                    <p>
+
+                        Processes commands and helps stabilize flight.
+
+                    </p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🛠️</span>
+
+                    <h4>Frame</h4>
+
+                    <p>Supports and connects the drone components.</p>
+
+                </div>
+
+            </div>
+
+            <h3>3. How Does a Drone Move?</h3>
+
+            <div class="controls-grid">
+
+                <div class="control-card">
+
+                    <h4>Throttle</h4>
+
+                    <p>Controls upward and downward movement.</p>
+
+                </div>
+
+                <div class="control-card">
+
+                    <h4>Yaw</h4>
+
+                    <p>Rotates the drone left or right.</p>
+
+                </div>
+
+                <div class="control-card">
+
+                    <h4>Pitch</h4>
+
+                    <p>Tilts the drone forward or backward.</p>
+
+                </div>
+
+                <div class="control-card">
+
+                    <h4>Roll</h4>
+
+                    <p>Tilts the drone left or right.</p>
+
+                </div>
+
+            </div>
+
+            <!-- LESSON 1 QUESTION -->
+
+            <div class="lesson-question">
+
+                <p class="lesson-label">KNOWLEDGE CHECK</p>
+
+                <h3>Quick Question</h3>
+
+                <p>
+
+                    Which component provides electrical
+
+                    power to a drone?
+
+                </p>
+
+                <div class="answer-options">
+
+                    <button type="button"
+
+                            onclick="checkAnswer(false)">
+
+                        A. Propellers
+
+                    </button>
+
+                    <button type="button"
+
+                            onclick="checkAnswer(true)">
+
+                        B. Battery
+
+                    </button>
+
+                    <button type="button"
+
+                            onclick="checkAnswer(false)">
+
+                        C. Frame
+
+                    </button>
+
+                </div>
+
+                <p id="answer-feedback" aria-live="polite"></p>
+
+            </div>
+
+                    <div class="lesson-question" style="margin-top:24px;">
+                <p class="lesson-label">LESSON PROGRESS</p>
+                <button type="button" class="cta" id="complete-btn-1"
+                        onclick="completeLesson(1)">✓ Mark Lesson 1 as Completed</button>
+                <p id="completion-feedback-1" role="status" aria-live="polite"></p>
+            </div>
+
+        </section>
+
+        <!-- ===================================
+
+             LESSON 2: DRONE SAFETY
+
+             \=================================== -->
+
+        <section class="lesson-box" id="lesson-2">
+
+            <p class="lesson-label">LESSON 02 - BEGINNER</p>
+
+            <h2>Drone Safety & Flight Rules</h2>
+
+            <h3>Learning Objectives</h3>
+
+            <p>By the end of this lesson, you will be able to:</p>
+
+            <ul>
+
+                <li>Identify important drone safety rules.</li>
+
+                <li>Complete a basic pre-flight safety check.</li>
+
+                <li>Explain how to respond to unsafe flight conditions.</li>
+
+            </ul>
+
+            <h3>1. Basic Safety Rules</h3>
+
+            <div class="parts-grid">
+
+                <div class="part-card">
+
+                    <span>👀</span>
+
+                    <h4>Keep Your Drone in Sight</h4>
+
+                    <p>Always watch your drone while flying.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🚶</span>
+
+                    <h4>Stay Away from People</h4>
+
+                    <p>
+
+                        Keep a safe distance from people
+
+                        and obstacles.
+
+                    </p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🌦️</span>
+
+                    <h4>Check the Weather</h4>
+
+                    <p>
+
+                        Do not fly in rain, strong wind,
+
+                        or storms.
+
+                    </p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🔋</span>
+
+                    <h4>Check the Battery</h4>
+
+                    <p>
+
+                        Make sure the battery is charged
+
+                        and undamaged.
+
+                    </p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🧑‍🏫</span>
+
+                    <h4>Follow Instructor Directions</h4>
+
+                    <p>
+
+                        Never fly during class without permission.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <h3>2. Pre-Flight Checklist</h3>
+
+            <ul>
+
+                <li>Inspect the propellers and frame.</li>
+
+                <li>Check the battery level.</li>
+
+                <li>Make sure the flight area is clear.</li>
+
+                <li>Confirm that the controller is connected.</li>
+
+                <li>Get permission from your instructor.</li>
+
+            </ul>
+
+            <h3>3. What If Something Goes Wrong?</h3>
+
+            <p>
+
+                If you notice a problem during flight, stay calm.
+
+                Follow your instructor's directions and land safely
+
+                when possible. Never try to catch a moving drone
+
+                with your hands.
+
+            </p>
+
+            <!-- LESSON 2 QUESTION -->
+
+            <div class="lesson-question">
+
+                <p class="lesson-label">KNOWLEDGE CHECK</p>
+
+                <h3>Quick Question</h3>
+
+                <p>
+
+                    What should you do before flying a drone?
+
+                </p>
+
+                <div class="answer-options">
+
+                    <button type="button"
+
+                            onclick="checkSafetyAnswer(false)">
+
+                        A. Fly immediately
+
+                    </button>
+
+                    <button type="button"
+
+                            onclick="checkSafetyAnswer(true)">
+
+                        B. Check the drone and flight area
+
+                    </button>
+
+                    <button type="button"
+
+                            onclick="checkSafetyAnswer(false)">
+
+                        C. Ignore the battery level
+
+                    </button>
+
+                </div>
+
+                <p id="safety-feedback" aria-live="polite"></p>
+
+            </div>
+
+                    <div class="lesson-question" style="margin-top:24px;">
+                <p class="lesson-label">LESSON PROGRESS</p>
+                <button type="button" class="cta" id="complete-btn-2"
+                        onclick="completeLesson(2)">✓ Mark Lesson 2 as Completed</button>
+                <p id="completion-feedback-2" role="status" aria-live="polite"></p>
+            </div>
+
+        </section>
+
+        <!-- ===================================
+
+             LESSON 3: DRONE PROGRAMMING
+
+             \=================================== -->
+
+        <section class="lesson-box" id="lesson-3">
+
+            <p class="lesson-label">LESSON 03 - BEGINNER</p>
+
+            <h2>Drone Programming with Blockly</h2>
+
+            <h3>Learning Objectives</h3>
+
+            <p>By the end of this lesson, you will be able to:</p>
+
+            <ul>
+
+                <li>Explain what block-based programming is.</li>
+
+                <li>Identify basic CoDrone EDU flight commands.</li>
+
+                <li>Create a simple flight sequence using Blockly.</li>
+
+            </ul>
+
+            <h3>1. What Is Blockly?</h3>
+
+            <p>
+
+                Blockly is a visual programming system.
+
+                Instead of typing code, students connect
+
+                programming blocks to create instructions.
+
+            </p>
+
+            <h3>2. Basic Flight Commands</h3>
+
+            <div class="parts-grid">
+
+                <div class="part-card">
+
+                    <span>🚀</span>
+
+                    <h4>Take Off</h4>
+
+                    <p>Starts the drone's flight.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>⬆️</span>
+
+                    <h4>Move Forward</h4>
+
+                    <p>Moves the drone forward.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>↩️</span>
+
+                    <h4>Turn</h4>
+
+                    <p>Rotates the drone left or right.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>⏳</span>
+
+                    <h4>Wait</h4>
+
+                    <p>Pauses before the next instruction.</p>
+
+                </div>
+
+                <div class="part-card">
+
+                    <span>🛬</span>
+
+                    <h4>Land</h4>
+
+                    <p>Ends the flight safely.</p>
+
+                </div>
+
+            </div>
+
+            <h3>3. Practice with Robolink Blockly</h3>
+
+            <div class="lesson-question">
+
+                <p class="lesson-label">HANDS-ON ACTIVITY</p>
+
+                <h3>Build Your First Drone Program</h3>
+
+                <p>
+
+                    Open Robolink Blockly and explore
+
+                    the programming blocks for CoDrone EDU.
+
+                </p>
+
+                <ol>
+
+                    <li>Open Robolink Blockly.</li>
+
+                    <li>Find the Take Off block.</li>
+
+                    <li>Find a movement block.</li>
+
+                    <li>Find the Land block.</li>
+
+                    <li>
+
+                        Arrange the blocks into a flight sequence.
+
+                    </li>
+
+                </ol>
+
+                <p>
+
+                    <strong>Safety:</strong>
+
+                    Only connect and fly the drone
+
+                    with instructor permission.
+
+                </p>
+
+                <a
+
+                    href="https://codrone.robolink.com/edu/blockly/"
+
+                    target="_blank"
+
+                    rel="noopener noreferrer"
+
+                    class="cta"
+
+                >
+
+                    Open Robolink Blockly →
+
+                </a>
+
+            </div>
+
+            <h3>4. Knowledge Check</h3>
+
+            <!-- LESSON 3 QUESTION -->
+
+            <div class="lesson-question">
+
+                <p class="lesson-label">THINK ABOUT IT</p>
+
+                <h3>Quick Question</h3>
+
+                <p>
+
+                    Which command should normally come
+
+                    first in a basic drone flight sequence?
+
+                </p>
+
+                <div class="answer-options">
+
+                    <button type="button"
+
+                            onclick="checkBlocklyAnswer(false)">
+
+                        A. Land
+
+                    </button>
+
+                    <button type="button"
+
+                            onclick="checkBlocklyAnswer(true)">
+
+                        B. Take Off
+
+                    </button>
+
+                    <button type="button"
+
+                            onclick="checkBlocklyAnswer(false)">
+
+                        C. Turn
+
+                    </button>
+
+                </div>
+
+                <p id="blockly-feedback" aria-live="polite"></p>
+
+                <p>
+
+                    <strong>Hint:</strong>
+
+                    Think about what the drone needs
+
+                    to do before moving through the air.
+
+                </p>
+
+            </div>
+
+                    <div class="lesson-question" style="margin-top:24px;">
+                <p class="lesson-label">LESSON PROGRESS</p>
+                <button type="button" class="cta" id="complete-btn-3"
+                        onclick="completeLesson(3)">✓ Mark Lesson 3 as Completed</button>
+                <p id="completion-feedback-3" role="status" aria-live="polite"></p>
+            </div>
+
+        </section>
+
+        <!-- BACK TO HOME -->
+
+        <a href="/" class="cta">
+
+            ← Back to Home
+
+        </a>
+
+    </main>
+
+    <!-- ===================================
+
+         JAVASCRIPT: INTERACTIVE QUESTIONS
+
+         \=================================== -->
+
+    <script>
+
+        // LESSON 1
+
+        function checkAnswer(isCorrect) {
+
+            const feedback =
+
+                document.getElementById("answer-feedback");
+
+            if (isCorrect) {
+
+                feedback.textContent =
+
+                    "Correct! The battery provides electrical power.";
+
+                feedback.style.color = "#176c3a";
+
+            } else {
+
+                feedback.textContent =
+
+                    "Not quite. Try again!";
+
+                feedback.style.color = "#a32c35";
+
+            }
+
+        }
+
+        // LESSON 2
+
+        function checkSafetyAnswer(isCorrect) {
+
+            const feedback =
+
+                document.getElementById("safety-feedback");
+
+            if (isCorrect) {
+
+                feedback.textContent =
+
+                    "Correct! Always complete a pre-flight safety check.";
+
+                feedback.style.color = "#176c3a";
+
+            } else {
+
+                feedback.textContent =
+
+                    "Not quite. Try again!";
+
+                feedback.style.color = "#a32c35";
+
+            }
+
+        }
+
+        // LESSON 3
+
+        function checkBlocklyAnswer(isCorrect) {
+
+            const feedback =
+
+                document.getElementById("blockly-feedback");
+
+            if (isCorrect) {
+
+                feedback.textContent =
+
+                    "Correct! Take Off comes first in this flight sequence.";
+
+                feedback.style.color = "#176c3a";
+
+            } else {
+
+                feedback.textContent =
+
+                    "Not quite. Try again!";
+
+                feedback.style.color = "#a32c35";
+
+            }
+
+        }
+
+ 
+        // Save completed lessons in the Flask/SQLite database.
+        async function completeLesson(lessonNumber) {
+            const nameInput = document.getElementById("progress-student-name");
+            const studentName = nameInput.value.trim();
+            const feedback = document.getElementById(`completion-feedback-${lessonNumber}`);
+            const button = document.getElementById(`complete-btn-${lessonNumber}`);
+
+            if (!studentName || studentName.length > 100) {
+                feedback.textContent = "Please enter your name at the top of the page first.";
+                feedback.style.color = "#a32c35";
+                nameInput.focus();
+                return;
+            }
+
+            button.disabled = true;
+            feedback.textContent = "Saving your progress...";
+            feedback.style.color = "inherit";
+
+            try {
+                const response = await fetch("/complete-lesson", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({student_name: studentName, lesson_number: lessonNumber})
+                });
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    throw new Error(result.error || "Could not save your progress.");
+                }
+                feedback.textContent = `✓ Lesson ${lessonNumber} completed and saved for ${studentName}!`;
+                feedback.style.color = "#176c3a";
+            } catch (error) {
+                feedback.textContent = error.message || "Unable to save. Please try again.";
+                feedback.style.color = "#a32c35";
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+   </script>
+
+</body>
+
+</html>
+

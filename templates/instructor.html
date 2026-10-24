@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard | DroneLearn</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .dashboard {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .dashboard h1 {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .results-table th {
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        .score {
+            font-weight: bold;
+            color: #176c3a;
+        }
+
+        .empty-message {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <a href="/" class="brand">
+            <img
+                src="{{ url_for('static', filename='school-logo.png') }}"
+                alt="School Logo"
+            >
+            <div>
+                <strong>DRONELEARN</strong>
+                <small>JOSEPH A. TAUB SCHOOL</small>
+            </div>
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/lessons#lesson-1">Lessons</a>
+            <a href="/lessons#lesson-2">Safety</a>
+            <a href="/lessons#lesson-3">Programming</a>
+            <a href="/quiz">Quizzes</a>
+            <a href="/login">Dashboard</a>
+        </nav>
+    </header>
+
+    <main class="dashboard">
+
+        <h1>Instructor Dashboard</h1>
+        <form method="POST" action="/logout">
+    <button type="submit">Logout</button>
+</form>
+
+        <p class="dashboard-subtitle">
+            Student quiz results and performance overview.
+        </p>
+
+        <div class="dashboard-card">
+
+            <h2>Student Quiz Results</h2>
+            <a href="{{ url_for('export_quiz_results') }}"
+   class="cta"
+   style="display: inline-block; margin: 15px 0 25px; text-decoration: none;">
+    ⬇ Download Quiz Results (Excel/CSV)
+</a>
+
+            {% if results %}
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Score</th>
+                        <th>Percentage</th>
+                        <th>Submission Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for student in results %}
+                    <tr>
+                        <td>{{ student["student_name"] }}</td>
+
+                        <td class="score">
+                            {{ student["score"] }}/{{ student["total_questions"] }}
+                        </td>
+
+                        <td>
+                            {{ (student["score"] / student["total_questions"] * 100) | round | int }}%
+                        </td>
+
+                        <td>
+                            {{ student["submitted_at"] }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {% else %}
+
+            <p class="empty-message">
+                No quiz submissions yet.
+            </p>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+<section class="dashboard-section" style="margin: 32px auto; max-width: 1100px; padding: 20px;">
+    <h2>Student Lesson Progress</h2>
+    <p>Track student completion across all three lessons.</p>
+
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Lesson 1</th>
+                    <th>Lesson 2</th>
+                    <th>Lesson 3</th>
+                    <th>Progress</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in lesson_progress %}
+                <tr>
+                    <td>{{ student.student_name }}</td>
+                    <td>{{ '✓' if 1 in student.completed_lessons else '—' }}</td>
+                    <td>{{ '✓' if 2 in student.completed_lessons else '—' }}</td>
+                    <td>{{ '✓' if 3 in student.completed_lessons else '—' }}</td>
+                    <td>{{ student.count }}/3 — {{ student.percentage }}%</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No completed lessons recorded yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Drone Knowledge Quiz | DroneLearn</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .quiz-student {
+            width: 100%;
+            max-width: 450px;
+            padding: 13px;
+            margin: 10px 0 25px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .quiz-question {
+            margin: 25px 0;
+            padding: 22px;
+            border: 1px solid #e2e2e2;
+            border-radius: 12px;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+        }
+
+        .quiz-option {
+            display: block;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover {
+            background: #f7f4ef;
+        }
+
+        .quiz-option input {
+            margin-right: 10px;
+        }
+
+        .quiz-submit {
+            cursor: pointer;
+            border: none;
+            font: inherit;
+        }
+
+        .quiz-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-result {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            background: #f4f8f5;
+            border: 1px solid #c5dec9;
+            text-align: center;
+        }
+
+        .quiz-result h2 {
+            color: #176c3a;
+        }
+
+        .quiz-error {
+            background: #fff5f5;
+            border-color: #e8bcbc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <a href="/" class="brand">
+
+            <img
+                src="{{ url_for('static', filename='school-logo.png') }}"
+                alt="Joseph A. Taub School Logo"
+            >
+
+            <div>
+                <strong>DRONELEARN</strong>
+                <small>JOSEPH A. TAUB SCHOOL</small>
+            </div>
+
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="/lessons#lesson-1">Lessons</a>
+            <a href="/lessons#lesson-2">Safety</a>
+            <a href="/lessons#lesson-3">Programming</a>
+            <a href="/quiz">Quizzes</a>
+            <a href="/login">Dashboard</a>
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="lessons-page">
+
+        <div class="lesson-intro">
+
+            <p class="lesson-label">
+                DRONE EDUCATION PROGRAM
+            </p>
+
+            <h1>Drone Knowledge Quiz</h1>
+
+            <p>
+                Test your knowledge of drone components,
+                flight controls, safety, and Blockly programming.
+            </p>
+
+            <p>
+                5 Questions | 5 Points | Beginner Level
+            </p>
+
+        </div>
+
+
+        <!-- QUIZ SECTION -->
+        <section class="lesson-box">
+
+            <form id="quiz-form">
+
+                <!-- STUDENT INFORMATION -->
+                <h2>Student Information</h2>
+
+                <label for="student-name">
+                    <strong>Student Name</strong>
+                </label>
+
+                <input
+                    type="text"
+                    id="student-name"
+                    class="quiz-student"
+                    placeholder="Enter your full name"
+                    maxlength="100"
+                    autocomplete="name"
+                    required
+                >
+
+
+                <!-- QUESTION 1 -->
+                <div class="quiz-question">
+
+                    <p class="lesson-label">QUESTION 01</p>
+
+                    <h3>
+                        Which component provides electrical
+                        power to a drone?
+                    </h3>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="a" required>
+                        A. Propellers
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="b">
+                        B. Battery
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="c">
+                        C. Frame
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 2 -->
+                <div class="quiz-question">
+
+                    <p class="lesson-label">QUESTION 02</p>
+
+                    <h3>
+                        What does yaw control?
+                    </h3>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="a" required>
+                        A. Rotation left and right
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="b">
+                        B. Moving up and down
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="c">
+                        C. Battery power
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 3 -->
+                <div class="quiz-question">
+
+                    <p class="lesson-label">QUESTION 03</p>
+
+                    <h3>
+                        What should you do before flying a drone?
+                    </h3>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="a" required>
+                        A. Fly immediately
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="b">
+                        B. Check the drone and flight area
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="c">
+                        C. Ignore the weather
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 4 -->
+                <div class="quiz-question">
+
+                    <p class="lesson-label">QUESTION 04</p>
+
+                    <h3>
+                        What is Blockly?
+                    </h3>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="a" required>
+                        A. A drone battery
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="b">
+                        B. A visual programming system
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="c">
+                        C. A propeller type
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 5 -->
+                <div class="quiz-question">
+
+                    <p class="lesson-label">QUESTION 05</p>
+
+                    <h3>
+                        Which command begins a basic
+                        drone flight sequence?
+                    </h3>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="a" required>
+                        A. Land
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="b">
+                        B. Take Off
+                    </label>
+
+                    <label class="quiz-option">
+                        <input type="radio" name="q5" value="c">
+                        C. Turn
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT BUTTON -->
+                <div style="margin-top: 30px;">
+
+                    <button
+                        type="submit"
+                        id="submit-button"
+                        class="cta quiz-submit"
+                    >
+                        Submit Quiz
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <!-- QUIZ RESULT -->
+            <div
+                id="quiz-result"
+                class="quiz-result"
+                role="status"
+                aria-live="polite"
+            >
+                <h2 id="result-title"></h2>
+                <p id="result-message"></p>
+                <p id="result-score"></p>
+                <p id="result-status"></p>
+            </div>
+
+        </section>
+
+
+        <!-- BACK TO LESSONS -->
+        <a href="/lessons" class="cta">
+            ← Back to Lessons
+        </a>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const quizForm = document.getElementById("quiz-form");
+
+        const submitButton =
+            document.getElementById("submit-button");
+
+        const result =
+            document.getElementById("quiz-result");
+
+
+        quizForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            // Get student name
+            const studentName =
+                document.getElementById("student-name").value.trim();
+
+            if (!studentName) {
+                alert("Please enter your name.");
+                return;
+            }
+
+
+            // Collect all five answers
+            const answers = {};
+
+            for (let i = 1; i <= 5; i++) {
+
+                const selected = document.querySelector(
+                    'input[name="q' + i + '"]:checked'
+                );
+
+                if (!selected) {
+                    alert("Please answer all five questions.");
+                    return;
+                }
+
+                answers["q" + i] = selected.value;
+            }
+
+
+            // Disable button during submission
+            submitButton.disabled = true;
+            submitButton.textContent = "Submitting...";
+
+            result.style.display = "none";
+
+
+            try {
+
+                // Send quiz to Flask
+                const response = await fetch("/submit-quiz", {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        student_name: studentName,
+                        answers: answers
+                    })
+
+                });
+
+
+                // Read server response
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.error || "Quiz submission failed."
+                    );
+                }
+
+
+                // Display saved score
+                document.getElementById("result-title").textContent =
+                    "Quiz Completed!";
+
+                document.getElementById("result-message").textContent =
+                    "Great work, " + data.student_name + "!";
+
+                document.getElementById("result-score").textContent =
+                    "Your Score: " +
+                    data.score + "/" + data.total +
+                    " (" + data.percentage + "%)";
+
+                document.getElementById("result-status").textContent =
+                    "Your result was saved successfully!";
+
+                result.classList.remove("quiz-error");
+                result.style.display = "block";
+
+                // Prevent duplicate submissions
+                quizForm.style.display = "none";
+
+            } catch (error) {
+
+                document.getElementById("result-title").textContent =
+                    "Submission Error";
+
+                document.getElementById("result-message").textContent =
+                    error.message;
+
+                document.getElementById("result-score").textContent = "";
+
+                document.getElementById("result-status").textContent =
+                    "Please try again.";
+
+                result.classList.add("quiz-error");
+                result.style.display = "block";
+
+                submitButton.disabled = false;
+                submitButton.textContent = "Submit Quiz";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
